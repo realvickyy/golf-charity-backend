@@ -108,7 +108,7 @@ app.get('/health', (req, res) => res.redirect('/api/health'));
 app.get('/', (req, res) => {
   res.status(200).json({
     success: true,
-    data: { service: 'Golf Charity Platform API', version: '1.0' },
+    data: { service: 'Golf Charity Platform API', version: '1.1' },
     message: 'Welcome to the Digital Heroes Golf Charity Platform API.'
   });
 });
