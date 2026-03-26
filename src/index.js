@@ -89,6 +89,16 @@ app.get('/api/health', (req, res) => {
   });
 });
 
+app.get('/health', (req, res) => res.redirect('/api/health'));
+
+app.get('/', (req, res) => {
+  res.status(200).json({
+    success: true,
+    data: { service: 'Golf Charity Platform API', version: '1.0' },
+    message: 'Welcome to the Digital Heroes Golf Charity Platform API.'
+  });
+});
+
 // ========================================
 // 404 Handler
 // ========================================
