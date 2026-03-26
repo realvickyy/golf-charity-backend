@@ -7,10 +7,11 @@ const SALT_ROUNDS = 12;
 const JWT_EXPIRY = '7d';
 
 const setCookie = (res, token, rememberMe = false) => {
+  const isProduction = process.env.NODE_ENV === 'production';
   const options = {
     httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'lax',
+    secure: isProduction,
+    sameSite: isProduction ? 'none' : 'lax',
   };
   if (rememberMe) {
     options.maxAge = 30 * 24 * 60 * 60 * 1000; // 30 days
@@ -167,10 +168,11 @@ const login = async (req, res) => {
 
 const logout = async (req, res) => {
   try {
+    const isProduction = process.env.NODE_ENV === 'production';
     res.clearCookie('token', {
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'lax'
+      secure: isProduction,
+      sameSite: isProduction ? 'none' : 'lax'
     });
 
     return res.status(200).json({
