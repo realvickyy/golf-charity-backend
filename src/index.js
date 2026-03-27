@@ -5,7 +5,6 @@ const cors = require('cors');
 const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
 const rateLimit = require('express-rate-limit');
-// Import routes
 const authRoutes = require('./routes/auth');
 const subscriptionRoutes = require('./routes/subscriptions');
 const scoreRoutes = require('./routes/scores');
