@@ -13,6 +13,7 @@ const { charityRouter, contributionRouter } = require('./routes/charities');
 const drawRoutes = require('./routes/draws');
 const winnerRoutes = require('./routes/winners');
 const adminRoutes = require('./routes/admin');
+const landingRoutes = require('./routes/landing');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -85,6 +86,7 @@ app.use('/api/contributions', contributionRouter);
 app.use('/api/draws', drawRoutes);
 app.use('/api/winners', winnerRoutes);
 app.use('/api/admin', adminRoutes);
+app.use('/api/landing', landingRoutes);
 
 // ========================================
 // Health Check
